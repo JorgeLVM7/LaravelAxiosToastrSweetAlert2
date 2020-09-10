@@ -18,6 +18,23 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+    {{-- Jquery para Toastr--}}
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    
+    {{-- Toastr  --}}
+    <link href="{{ asset('libreria/toastr/toastr.scss') }}" rel="stylesheet"/>
+    <script src="{{ asset('libreria/toastr/toastr.js') }}"></script>
+
+    {{-- SweetAlert2 --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+
+    
+
+
 </head>
 <body>
     <div id="app">
