@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\DatosP;
 
 class ApiDatosPController extends Controller
 {
@@ -13,7 +14,7 @@ class ApiDatosPController extends Controller
      */
     public function index()
     {
-        //
+        return DatosP::orderBy('id','desc')->get();
     }
 
     /**
@@ -34,7 +35,20 @@ class ApiDatosPController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $datos = new DatosP;
+
+        $datos->nombre  = $request->nombre;
+        $datos->posicion  = $request->posicion;
+        $datos->salario  = $request->salario;
+
+        $datos->save();
+
+        return 'Datos guardados correctamente';
+        // return 'datos recibidos';
+        // return $request ->all(); //Sirve par confirmar que pasan los datos correctamente a la funcion
+
+
     }
 
     /**
@@ -66,9 +80,14 @@ class ApiDatosPController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, DatosP $datosp)
     {
-        //
+        $datosp->nombre  = $request->nombre;
+        $datosp->posicion  = $request->posicion;
+        $datosp->salario  = $request->salario;
+        $datosp->save();
+
+        return 'Datos guardados correctamente';
     }
 
     /**
@@ -77,8 +96,10 @@ class ApiDatosPController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(DatosP $datosp)
     {
-        //
+        $datosp->delete();
+
+        return 'Registro eliminado correctamente';
     }
 }

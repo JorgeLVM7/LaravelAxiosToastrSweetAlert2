@@ -21,5 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('datosp','ApiDatosPController')->names('apidatosp');
 
